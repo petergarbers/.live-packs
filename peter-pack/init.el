@@ -30,3 +30,6 @@
 
 (live-load-config-file "bindings.el")
 (live-load-config-file "projectile.el")
+(live-load-config-file "cosmetics.el")
+
+(setq cider-use-local-resources nil)
