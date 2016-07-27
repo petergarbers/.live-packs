@@ -5,11 +5,15 @@
 
 ;; Load bindings config
 (require 'package)
-(add-to-list 'package-archives
-             '("marmalade" . "http://marmalade-repo.org/packages/") t)
-(add-to-list 'package-archives
-             '("melpa" . "http://melpa.milkbox.net/packages/") t)
+
+(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
+                     ("marmalade" . "http://marmalade-repo.org/packages/")
+                     ("melpa" . "http://melpa.org/packages/")))
+
 (package-initialize)
+
+(when (not package-archive-contents)
+  (package-refresh-contents))
 
 (when (not package-archive-contents)
   (package-refresh-contents))
@@ -25,3 +29,4 @@
 
 
 (live-load-config-file "bindings.el")
+(live-load-config-file "projectile.el")
